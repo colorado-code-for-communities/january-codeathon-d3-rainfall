@@ -46,7 +46,7 @@ var day = d3.time.format("%w"),
 
 var color = d3.scale.quantize()
     .domain([-.05, .05])
-    .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
+    .range(d3.range(1).map(function(d) { return "q" + d + "-11"; }));
 
 var svg = d3.select("body").selectAll("svg")
     .data(d3.range(2012, 2012))
