@@ -81,9 +81,15 @@ svg.selectAll(".month")
     .attr("class", "month")
     .attr("d", monthPath);
 
-d3.csv("dji.csv", function(error, csv) {
+/*
+ * Date,Open,High,Low,Close,Volume,Adj Close
+ * 2010-10-01,10789.72,10907.41,10759.14,10829.68,4298910000,10829.68
+ * 2010-09-30,10835.96,10960.99,10732.27,10788.05,4284160000,10788.05
+ */
+
+d3.csv("precip.csv", function(error, csv) {
   var data = d3.nest()
-    .key(function(d) { return d.Date; })
+    .key(function(d) { console.log('read a date', d.Date); return d.Date; })
     .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
     .map(csv);
 
